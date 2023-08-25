@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            background-image: linear-gradient(to top left, #fefafd 0%, #836592 100%);
+            width: 100vw;
+            height: 100vw;
+            background-size: cover;
+        }
+
+        button {
+            height: 100px;
+            width: 100px;
+            border-radius: 5px;
+            border-color: beige;
+        }
+
+        #result {
+            height: 100px;
+            width: 405px;
+            border-radius: 5px;
+            margin-bottom: 2px;
+            border: 5px;
+            font-size: medium;
+            border-color: beige;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>CALCULATOR</h1>
+        <input type="text" placeholder="0" id="result">
+        <table>
+            <tr>
+                <td><button onclick="display('7')">7</button></td>
+                <td><button onclick="display('8')">8</button></td>
+                <td><button onclick="display('9')">9</button></td>
+                <td><button onclick="display('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="display('4')">4</button></td>
+                <td><button onclick="display('5')">5</button></td>
+                <td><button onclick="display('6')">6</button></td>
+                <td><button onclick="display('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="display('1')">1</button></td>
+                <td><button onclick="display('2')">2</button></td>
+                <td><button onclick="display('3')">3</button></td>
+                <td><button onclick="display('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="display('0')">0</button></td>
+                <td><button onclick="clr('c')">C</button></td>
+                <td><button onclick="calculate('=')">=</button></td>
+                <td><button onclick="display('/')">/</button></td>
+            </tr>
+        </table>
+    </center>
+</body>
+<script>
+    let output = document.getElementById("result");
+    function display(num) {
+        output.value += num;
+    }
+    function calculate() {
+        try {
+            output.value = eval(output.value);
+        }
+        catch (err) {
+            alert("Invalid");
+        }
+    }
+    function clr() {
+        output.value = null;//"" can also be given instead of null
+    }
+</script>
+
+</html>
